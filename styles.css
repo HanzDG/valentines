@@ -1,0 +1,156 @@
+body {
+    font-family: 'Great Vibes', cursive;
+    margin: 0;
+    padding: 0;
+    background: linear-gradient(135deg, #FFC0CB, #E6A8D7);
+    overflow-y: auto; /* Enable vertical scrolling */
+}
+
+main {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: calc(100vh - 100px); /* Adjust based on header and footer height */
+    padding-bottom: 50px; /* Add padding at the bottom to prevent content from being hidden */
+}
+
+header {
+    background-color: #EFEBE0;
+    color: #000000;
+    text-align: center;
+    padding: 20px 0;
+}
+
+main {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: calc(100vh - 100px); /* Adjust based on header and footer height */
+}
+
+.side-image {
+    max-width: 40%; /* Adjust the maximum width as needed */
+    padding: 20px;
+    box-sizing: border-box; /* Include padding in max-width calculation */
+}
+
+.side-image img {
+    max-width: 100%;
+    height: auto;
+    display: inline-block; /* Ensure the image respects its container */
+    margin: 0 auto;
+}
+
+.side-image img:hover {
+    transform: scale(1.05);
+    transition: transform 0.3s ease;
+}
+
+.collage-container {
+    position: relative;
+    max-width: 58%; /* Adjust the maximum width as needed */
+    padding: 20px;
+    box-sizing: border-box; /* Include padding in max-width calculation */
+    text-align: center; /* Center the image horizontally */
+    overflow: hidden; /* Ensure overlay content stays within container */
+}
+
+.collage-overlay {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    color: white;
+    z-index: 1;
+}
+
+.collage-overlay h2 {
+    font-size: 24px;
+}
+
+.collage-overlay p {
+    font-size: 16px;
+}
+
+.collage-container img {
+    max-width: 100%;
+    height: auto;
+    display: inline-block; /* Ensure the image respects its container */
+    margin: 0 auto;
+}
+
+.collage-container img:hover {
+    transform: scale(1.05);
+    transition: transform 0.3s ease;
+}
+
+.collage-overlay::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0); /* Set initial opacity to 0 */
+    z-index: -1;
+    transition: background-color 0.3s ease; /* Add transition effect */
+}
+
+.collage-overlay:hover::before {
+    background-color: rgba(0, 0, 0, 0.5); /* Set opacity to 0.5 on hover */
+}
+
+.collage-overlay::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: url('https://images.unsplash.com/photo-1506748686214-e9df14d4d9d9?ixlib=rb-1.2.1&auto=format&fit=crop&w=1050&q=80');
+    background-size: cover;
+    background-position: center;
+    z-index: -2;
+}
+
+.collage-overlay::after {
+    transition: opacity 0.3s ease; /* Add transition effect */
+}
+
+.collage-overlay:hover::after {
+    opacity: 0; /* Set opacity to 0 on hover */
+}
+
+
+.collage-overlay:hover h2, .collage-overlay:hover p {
+    opacity: 1;
+    transition: opacity 0.3s ease;
+}
+
+.collage-overlay h2, .collage-overlay p {
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.collage-overlay h2, .collage-overlay p {
+    position: relative;
+    z-index: 1;
+}
+
+
+/* footer {
+    background-color: #EFEBE0;
+    color: #000000;
+    text-align: center;
+    padding: 10px 0;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+} */
+
+@media screen and (max-width: 768px) {
+    .side-image, .collage-container {
+        max-width: 100%;
+    }
+}
